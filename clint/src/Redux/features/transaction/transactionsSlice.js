@@ -29,7 +29,7 @@ const updateTran = createAsyncThunk(
 
 const deleteTransaction = createAsyncThunk(
   "transactions/deleteTransaction",
-  async ({ id }) => {
+  async (id) => {
     const trans = await deleteTran(id);
     return trans;
   }
@@ -104,7 +104,7 @@ const transactionsSlice = createSlice({
         state.isLoading = false;
         state.isError = false;
         state.transactions = state.transactions.filter(
-          (item) => item.id !== action.payload.id
+          (item) => item.id !== action.meta.arg
         );
       })
       .addCase(deleteTransaction.rejected, (state, action) => {

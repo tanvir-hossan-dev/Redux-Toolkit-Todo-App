@@ -9,7 +9,6 @@ export default function Transactions() {
     (state) => state.transactions
   );
 
-  console.log(useSelector((state) => state.transactions));
   useEffect(() => {
     dispatch(fetchTrans());
   }, [dispatch]);
